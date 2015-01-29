@@ -27,7 +27,8 @@ class Model extends \vova07\comments\models\Model
      * @var array Allowed extensions name
      */
     public static $extensions = [
-        'blogs' => 'vova07\blogs\models\frontend\Blog'
+        'blogs' => 'vova07\blogs\models\frontend\Blog',
+        'klasses' => 'pauko\klasses\models\frontend\Klass',
     ];
 
     /**

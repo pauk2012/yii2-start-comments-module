@@ -189,6 +189,75 @@ $boxButtons = !empty($boxButtons) ? implode(' ', $boxButtons) : null; ?>
                     ) ?>
                 <?php endif; ?>
             <?php endif; ?>
+
+            <?php if (Yii::$app->base->hasExtension('klasses')) : ?>
+                <?php if (Model::isExtensionEnabled('klasses')) : ?>
+                    <?= Html::a(
+                        Html::tag(
+                            'span',
+                            Html::tag(
+                                'i',
+                                '',
+                                [
+                                    'class' => 'fa fa-check'
+                                ]
+                            ),
+                            [
+                                'class' => 'badge bg-green'
+                            ]
+                        ) .
+                            Html::tag(
+                                'i',
+                                '',
+                                [
+                                    'class' => 'fa fa-book'
+                                ]
+                            ) .
+                            Module::t('comments-models', 'BACKEND_INDEX_MODULE_KLASSES'),
+                        [
+                            '/comments/models/disable',
+                            'name' => 'klasses'
+                        ],
+                        [
+                            'class' => 'btn btn-app',
+                            'data-method' => 'post',
+                            'data-confirm' => Module::t('comments-models', 'BACKEND_INDEX_MODULES_DISABLE_CONFIRMATION')
+                        ]
+                    ) ?>
+                <?php else : ?>
+                    <?= Html::a(
+                        Html::tag(
+                            'span',
+                            Html::tag(
+                                'i',
+                                '',
+                                [
+                                    'class' => 'fa fa-times'
+                                ]
+                            ),
+                            [
+                                'class' => 'badge bg-red'
+                            ]
+                        ) .
+                            Html::tag(
+                                'i',
+                                '',
+                                [
+                                    'class' => 'fa fa-book'
+                                ]
+                            ) .
+                            Module::t('comments-models', 'BACKEND_INDEX_MODULE_KLASSES'),
+                        [
+                            '/comments/models/enable',
+                            'name' => 'klasses'
+                        ],
+                        [
+                            'class' => 'btn btn-app',
+                            'data-method' => 'post'
+                        ]
+                    ) ?>
+                <?php endif; ?>
+            <?php endif; ?>
             <?php Box::end(); ?>
         </div>
     </div>
